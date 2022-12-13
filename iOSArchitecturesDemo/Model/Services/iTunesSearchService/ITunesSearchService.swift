@@ -38,6 +38,7 @@ final class ITunesSearchService {
         parameters[Parameter.mediaType] = MediaType.apps.rawValue
         
         let request = WebRequest(method: .get, url: baseUrl, parameters: parameters)
+        print(request)
         
         networkManager.dataRequest(request) { [weak self] result in
             guard let self = self else {
