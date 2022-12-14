@@ -10,7 +10,7 @@ import UIKit
 
 class AppDetailWhatsNewView: UIView {
     
-    private let titleLabel: UILabel = {
+    private(set) lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Что нового"
@@ -27,19 +27,7 @@ class AppDetailWhatsNewView: UIView {
         return label
     }()
     
-    private(set) lazy var descriptionLabel: UITextView = {
-        let textView = UITextView()
-        textView.dataDetectorTypes = UIDataDetectorTypes.all
-        textView.isScrollEnabled = false
-        textView.isSelectable = true
-        textView.isUserInteractionEnabled = true
-        textView.isEditable = false
-        textView.font = UIFont.systemFont(ofSize: 15.0)
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        return textView
-    }()
-    
-    private let versionHistoryLabel: UILabel = {
+    private(set) lazy var versionHistoryLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "История версий"
@@ -56,6 +44,14 @@ class AppDetailWhatsNewView: UIView {
         return label
     }()
     
+    private(set) lazy var descriptionLabel: UILabel = {
+        let lable = UILabel()
+        lable.translatesAutoresizingMaskIntoConstraints = false
+        lable.numberOfLines = 5
+        lable.font = UIFont.systemFont(ofSize: 15)
+        return lable
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -65,14 +61,20 @@ class AppDetailWhatsNewView: UIView {
         super.init(coder: coder)
         setUI()
     }
-        
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+
+        //backgroundColor = .blue
+    }
+    
     private func setUI() {
         self.addSubview(titleLabel)
         self.addSubview(versionLabel)
         self.addSubview(descriptionLabel)
         self.addSubview(versionHistoryLabel)
         self.addSubview(dateLabel)
-
+        
         setConstraints()
     }
     
@@ -93,6 +95,8 @@ class AppDetailWhatsNewView: UIView {
             
             dateLabel.topAnchor.constraint(equalTo: versionHistoryLabel.bottomAnchor, constant: 10),
             dateLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            dateLabel.leftAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }

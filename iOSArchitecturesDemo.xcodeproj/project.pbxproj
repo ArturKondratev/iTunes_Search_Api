@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		483F15932949D2C000ABCF5E /* ScreenshotsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F15922949D2C000ABCF5E /* ScreenshotsCell.swift */; };
+		484C292A2948C71C005A8044 /* AppDetailScreenshotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484C29292948C71C005A8044 /* AppDetailScreenshotsView.swift */; };
+		484C292F2948CAF9005A8044 /* AppDetailScreenshotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484C292E2948CAF9005A8044 /* AppDetailScreenshotsViewController.swift */; };
+		484C29322948CD88005A8044 /* AppDetailConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484C29312948CD88005A8044 /* AppDetailConstants.swift */; };
+		484C29342948F363005A8044 /* GetLableSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484C29332948F363005A8044 /* GetLableSize.swift */; };
 		4887AD9A2946530A00816246 /* AppDetailWhatsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887AD992946530A00816246 /* AppDetailWhatsNewViewController.swift */; };
 		4887AD9C2946535600816246 /* AppDetailWhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887AD9B2946535600816246 /* AppDetailWhatsNewView.swift */; };
 		48D2C99529463DD300BDB053 /* AppDetailHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2C99429463DD300BDB053 /* AppDetailHeaderViewController.swift */; };
@@ -32,6 +37,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		483F15922949D2C000ABCF5E /* ScreenshotsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsCell.swift; sourceTree = "<group>"; };
+		484C29292948C71C005A8044 /* AppDetailScreenshotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailScreenshotsView.swift; sourceTree = "<group>"; };
+		484C292E2948CAF9005A8044 /* AppDetailScreenshotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailScreenshotsViewController.swift; sourceTree = "<group>"; };
+		484C29312948CD88005A8044 /* AppDetailConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailConstants.swift; sourceTree = "<group>"; };
+		484C29332948F363005A8044 /* GetLableSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLableSize.swift; sourceTree = "<group>"; };
 		4887AD992946530A00816246 /* AppDetailWhatsNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailWhatsNewViewController.swift; sourceTree = "<group>"; };
 		4887AD9B2946535600816246 /* AppDetailWhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailWhatsNewView.swift; sourceTree = "<group>"; };
 		48D2C99429463DD300BDB053 /* AppDetailHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailHeaderViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +89,22 @@
 				A067E149D296BC0C249FD11F /* Pods-iOSArchitecturesDemo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		484C292B2948C940005A8044 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				483F15922949D2C000ABCF5E /* ScreenshotsCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		484C29302948CD57005A8044 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				484C29312948CD88005A8044 /* AppDetailConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		DB95456C2F2DCD400ABCE8E9 /* Frameworks */ = {
@@ -139,6 +165,8 @@
 		E0E1D2A72034A3780011E01A /* AppDetail */ = {
 			isa = PBXGroup;
 			children = (
+				484C29302948CD57005A8044 /* Constants */,
+				484C292B2948C940005A8044 /* Cell */,
 				F8114FC222A3E74E00102830 /* View */,
 				F8114FC322A3E75300102830 /* Controller */,
 			);
@@ -219,6 +247,7 @@
 			children = (
 				F8114FC422A3E77500102830 /* AppDetailHeaderView.swift */,
 				4887AD9B2946535600816246 /* AppDetailWhatsNewView.swift */,
+				484C29292948C71C005A8044 /* AppDetailScreenshotsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -229,6 +258,7 @@
 				E0E1D3D0203C48D70011E01A /* AppDetailViewController.swift */,
 				48D2C99429463DD300BDB053 /* AppDetailHeaderViewController.swift */,
 				4887AD992946530A00816246 /* AppDetailWhatsNewViewController.swift */,
+				484C292E2948CAF9005A8044 /* AppDetailScreenshotsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -276,6 +306,7 @@
 			children = (
 				F8A1E0402248511B00FE6448 /* Services */,
 				F8114FC622A3E8DF00102830 /* Entities */,
+				484C29332948F363005A8044 /* GetLableSize.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -422,12 +453,15 @@
 				F8A97B352249898E00FB2C0E /* AppCell.swift in Sources */,
 				48D2C99529463DD300BDB053 /* AppDetailHeaderViewController.swift in Sources */,
 				F8114FC522A3E77500102830 /* AppDetailHeaderView.swift in Sources */,
+				484C292A2948C71C005A8044 /* AppDetailScreenshotsView.swift in Sources */,
 				E0E1D387203AE45F0011E01A /* WebRequest.swift in Sources */,
 				4887AD9A2946530A00816246 /* AppDetailWhatsNewViewController.swift in Sources */,
 				F8A1E03C2248382F00FE6448 /* Monads.swift in Sources */,
 				E0E1D3D4203C4AA50011E01A /* UIColor+Extensions.swift in Sources */,
 				E0E1D3D1203C48D70011E01A /* AppDetailViewController.swift in Sources */,
 				E0E1D358203ADC590011E01A /* NetworkManager.swift in Sources */,
+				484C292F2948CAF9005A8044 /* AppDetailScreenshotsViewController.swift in Sources */,
+				483F15932949D2C000ABCF5E /* ScreenshotsCell.swift in Sources */,
 				4887AD9C2946535600816246 /* AppDetailWhatsNewView.swift in Sources */,
 				E0E1D39C203AE6420011E01A /* ITunesSong.swift in Sources */,
 				E0E1D2952034A3350011E01A /* SearchViewController.swift in Sources */,
@@ -438,6 +472,8 @@
 				E0E1D2932034A3350011E01A /* AppDelegate.swift in Sources */,
 				E0E1D384203AE3620011E01A /* AppStartManager.swift in Sources */,
 				F8114FC122A3E5EE00102830 /* AppCellModel.swift in Sources */,
+				484C29342948F363005A8044 /* GetLableSize.swift in Sources */,
+				484C29322948CD88005A8044 /* AppDetailConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
