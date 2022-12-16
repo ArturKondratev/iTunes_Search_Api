@@ -1,5 +1,5 @@
 //
-//  AppCellModel.swift
+//  AppCellModelFactory.swift
 //  iOSArchitecturesDemo
 //
 //  Created by Evgeny Kireev on 02/06/2019.
