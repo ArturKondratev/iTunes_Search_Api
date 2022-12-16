@@ -36,18 +36,10 @@ class AppDetailWhatsNewView: UIView {
         return label
     }()
     
-    private(set) lazy var dateLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .lightGray
-        label.font = UIFont.boldSystemFont(ofSize: 15.0)
-        return label
-    }()
-    
     private(set) lazy var descriptionLabel: UILabel = {
         let lable = UILabel()
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.numberOfLines = 5
+        lable.numberOfLines = 4
         lable.font = UIFont.systemFont(ofSize: 15)
         return lable
     }()
@@ -71,10 +63,8 @@ class AppDetailWhatsNewView: UIView {
     private func setUI() {
         self.addSubview(titleLabel)
         self.addSubview(versionLabel)
-        self.addSubview(descriptionLabel)
         self.addSubview(versionHistoryLabel)
-        self.addSubview(dateLabel)
-        
+        self.addSubview(descriptionLabel)
         setConstraints()
     }
     
@@ -86,17 +76,12 @@ class AppDetailWhatsNewView: UIView {
             versionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             versionLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
             
-            descriptionLabel.topAnchor.constraint(equalTo: versionLabel.bottomAnchor, constant: 10),
-            descriptionLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
-            descriptionLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            
-            versionHistoryLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            versionHistoryLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             versionHistoryLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
             
-            dateLabel.topAnchor.constraint(equalTo: versionHistoryLabel.bottomAnchor, constant: 10),
-            dateLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            dateLabel.leftAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+            descriptionLabel.topAnchor.constraint(equalTo: versionLabel.bottomAnchor, constant: 10),
+            descriptionLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            descriptionLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16)
         ])
     }
 }

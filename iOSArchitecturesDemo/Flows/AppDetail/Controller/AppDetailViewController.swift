@@ -65,7 +65,7 @@ final class AppDetailViewController: UIViewController {
             self.whatsNewViewController.view.topAnchor.constraint(equalTo: self.headerViewController.view.bottomAnchor),
             self.whatsNewViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.whatsNewViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            self.whatsNewViewController.view.heightAnchor.constraint(equalToConstant: 150)
+            self.whatsNewViewController.view.heightAnchor.constraint(equalToConstant: 120)
         ])
     }
     
@@ -77,11 +77,10 @@ final class AppDetailViewController: UIViewController {
         self.screenshotsViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            screenshotsViewController.view.topAnchor.constraint(equalTo: self.whatsNewViewController.view.bottomAnchor, constant: 10.0),
+            screenshotsViewController.view.topAnchor.constraint(equalTo: self.whatsNewViewController.view.bottomAnchor, constant: 15.0),
             screenshotsViewController.view.leftAnchor.constraint(equalTo: self.whatsNewViewController.view.leftAnchor),
             screenshotsViewController.view.rightAnchor.constraint(equalTo: self.whatsNewViewController.view.rightAnchor),
             screenshotsViewController.view.heightAnchor.constraint(equalToConstant: 70 + AppDetailConstants.getOptimalSize().height),
-           // screenshotsViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
     
