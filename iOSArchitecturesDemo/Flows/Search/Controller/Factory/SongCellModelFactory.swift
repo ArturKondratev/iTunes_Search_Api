@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SongCellModel {
+struct SongModel {
     let artistName: String
     let trackname: String
     let icon: String
@@ -16,8 +16,8 @@ struct SongCellModel {
 
 class SongCellModelFactory {
     
-    static func getCellModel(model: ITunesSong) -> SongCellModel {
-        return SongCellModel(artistName: model.artistName ?? "",
+    static func getCellModel(model: ITunesSong) -> SongModel {
+        return SongModel(artistName: model.artistName ?? "",
                              trackname: model.trackName,
                              icon: model.smallArtwork ?? "")
     }

@@ -50,7 +50,7 @@ final class SongCell: UITableViewCell {
     }
     
     // MARK: - Methods
-    func configure(model: SongCellModel) {
+    func configure(model: SongModel) {
         self.artistNameLable.text = model.artistName
         self.trackNameLable.text = model.trackname
         
@@ -78,8 +78,9 @@ final class SongCell: UITableViewCell {
         self.contentView.addSubview(self.image)
         
         NSLayoutConstraint.activate([
-            self.image.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8.0),
-            self.image.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 20.0),
+            self.image.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 6.0),
+            self.image.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -6.0),
+            self.image.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 16.0),
             self.image.widthAnchor.constraint(equalToConstant: 60),
             self.image.heightAnchor.constraint(equalToConstant: 60)
         ])

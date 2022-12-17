@@ -187,7 +187,8 @@ extension SearchViewController: UITableViewDelegate {
             
         case .songs:
             let song = searchSongResults[indexPath.row]
-            print(song)
+            let songDetailViewController = SongDetailViewController(song: song)
+            navigationController?.pushViewController(songDetailViewController, animated: true)
         }
     }
 }
