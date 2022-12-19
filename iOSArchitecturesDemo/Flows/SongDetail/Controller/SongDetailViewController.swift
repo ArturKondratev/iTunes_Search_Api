@@ -42,6 +42,7 @@ class SongDetailViewController: UIViewController, SongDetailViewDelegate {
         self.navigationItem.largeTitleDisplayMode = .never
         songDetailView.delegate = self
         fillData()
+        playerSet()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -57,14 +58,22 @@ class SongDetailViewController: UIViewController, SongDetailViewDelegate {
         }
     }
     
-    func playActionButton() {
-        
+    func playerSet() {
         guard let songUrl = song.previewUrl, let streamUrl = URL(string: songUrl) else { return }
         player = AVPlayer(url: streamUrl)
         
         guard let maxValue = player.currentItem?.asset.duration.seconds else { return }
         self.songDetailView.slider.maximumValue = Float(maxValue)
         
+        player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1000), queue: DispatchQueue.main) { time in
+            self.songDetailView.leftTimeLable.text = String(format: "%.f", time.seconds)
+            let rightTime = Double(self.songDetailView.slider.maximumValue) - time.seconds
+            self.songDetailView.rightTimeLable.text = String(format: "%.f", -rightTime)
+            self.songDetailView.slider.value = Float(time.seconds)
+        }
+    }
+    
+    func playActionButton() {
         if player.timeControlStatus == .playing {
             self.songDetailView.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             player.pause()
@@ -72,17 +81,9 @@ class SongDetailViewController: UIViewController, SongDetailViewDelegate {
             self.songDetailView.playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             player.play()
         }
-        
-        player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1000), queue: DispatchQueue.main) { time in
-            self.songDetailView.leftTimeLable.text = String(format: "%.f", time.seconds)
-            let rightTime = maxValue - time.seconds
-            self.songDetailView.rightTimeLable.text = String(format: "%.f", -rightTime)
-            self.songDetailView.slider.value = Float(time.seconds)
-        }
     }
     
     func sliderDidChanged(value: Float) {
         player.seek(to: CMTime(seconds: Double(value), preferredTimescale: 1000))
-        self.songDetailView.leftTimeLable.text = "\(value)"
     }
 }

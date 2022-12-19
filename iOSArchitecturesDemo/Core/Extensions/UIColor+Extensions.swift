@@ -11,6 +11,14 @@ import UIKit
 public extension UIColor {
     
     static let varna = UIColor.rgb(40.0, 35.0, 80.0)
+    static let playerBackgroundStartColor = UIColor(red: 55/255.0,
+                                                   green: 57/255.0,
+                                                   blue: 63/255.0,
+                                                   alpha: 1)
+    static let playerBackgroundEndColor = UIColor(red: 27/255.0,
+                                                  green: 27/255.0,
+                                                  blue: 29/255.0,
+                                                  alpha: 1)
 }
 
 public extension UIColor {
@@ -22,4 +30,6 @@ public extension UIColor {
     static func rgba(_ r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ a: CGFloat) -> UIColor {
         return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a)
     }
+     
+    
 }

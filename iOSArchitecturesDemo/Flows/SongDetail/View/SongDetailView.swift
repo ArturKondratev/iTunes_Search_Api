@@ -13,7 +13,7 @@ protocol SongDetailViewDelegate: AnyObject {
     func sliderDidChanged(value: Float)
 }
 
-class SongDetailView: UIView {
+class SongDetailView: LinearGradientView {
     
     weak var delegate: SongDetailViewDelegate?
     
@@ -30,8 +30,9 @@ class SongDetailView: UIView {
         let lable = UILabel()
         lable.translatesAutoresizingMaskIntoConstraints = false
         lable.font = UIFont.boldSystemFont(ofSize: 24)
+        lable.numberOfLines = 2
         lable.textAlignment = .center
-        lable.textColor = .black
+        lable.textColor = .white
         return lable
     }()
     
@@ -39,14 +40,17 @@ class SongDetailView: UIView {
         let lable = UILabel()
         lable.translatesAutoresizingMaskIntoConstraints = false
         lable.font = UIFont.boldSystemFont(ofSize: 24)
+        lable.numberOfLines = 2
         lable.textAlignment = .center
-        lable.textColor = .black
+        lable.textColor = .white
         return lable
     }()
     
     private(set) lazy var slider: UISlider = {
         let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.minimumTrackTintColor = .white
+        slider.maximumTrackTintColor = .darkGray
         slider.addTarget(self, action: #selector(sliderDidChanged), for: .valueChanged)
         return slider
     }()
@@ -72,35 +76,30 @@ class SongDetailView: UIView {
     }()
     
     private(set) lazy var playButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = CustomButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        button.tintColor = .white
         button.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
         return button
     }()
     
     private(set) lazy var forwardButton: UIButton = {
-        let button = UIButton()
+        let button = CustomButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "forward.fill"), for: .normal)
+        button.tintColor = .white
         return button
     }()
     
     private(set) lazy var backwardButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = CustomButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "backward.fill"), for: .normal)
+        button.tintColor = .white
         return button
     }()
     
-    private let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 30
-        return stackView
-    }()
     
     // MARK: - Init
     override init(frame: CGRect) {
@@ -112,7 +111,7 @@ class SongDetailView: UIView {
         super.init(coder: aDecoder)
         self.configureUI()
     }
-    
+        
     // MARK: - UI
     private func configureUI() {
         addSubview(albomImage)
@@ -121,10 +120,11 @@ class SongDetailView: UIView {
         addSubview(slider)
         addSubview(leftTimeLable)
         addSubview(rightTimeLable)
-        addSubview(stackView)
-        stackView.addArrangedSubview(backwardButton)
-        stackView.addArrangedSubview(playButton)
-        stackView.addArrangedSubview(forwardButton)
+        
+        addSubview(playButton)
+        addSubview(forwardButton)
+        addSubview(backwardButton)
+        
         setupConstraints()
     }
     
@@ -157,10 +157,20 @@ class SongDetailView: UIView {
             self.rightTimeLable.topAnchor.constraint(equalTo: self.slider.bottomAnchor, constant: 10),
             self.rightTimeLable.rightAnchor.constraint(equalTo: self.slider.rightAnchor),
             
-            self.stackView.topAnchor.constraint(equalTo: self.rightTimeLable.bottomAnchor, constant: 20),
-            self.stackView.leftAnchor.constraint(equalTo: self.albomImage.leftAnchor),
-            self.stackView.rightAnchor.constraint(equalTo: self.albomImage.rightAnchor),
-            self.stackView.heightAnchor.constraint(equalToConstant: 30)
+            self.playButton.widthAnchor.constraint(equalToConstant: 50),
+            self.playButton.heightAnchor.constraint(equalToConstant: 50),
+            self.playButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            self.playButton.topAnchor.constraint(equalTo: self.rightTimeLable.bottomAnchor, constant: 20),
+            
+            self.forwardButton.centerYAnchor.constraint(equalTo: self.playButton.centerYAnchor),
+            self.forwardButton.leftAnchor.constraint(equalTo: self.playButton.rightAnchor, constant: 60),
+            self.forwardButton.widthAnchor.constraint(equalToConstant: 50),
+            self.forwardButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            self.backwardButton.centerYAnchor.constraint(equalTo: self.playButton.centerYAnchor),
+            self.backwardButton.rightAnchor.constraint(equalTo: self.playButton.leftAnchor, constant: -60),
+            self.backwardButton.widthAnchor.constraint(equalToConstant: 50),
+            self.backwardButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     

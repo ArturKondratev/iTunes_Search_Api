@@ -14,6 +14,8 @@
 		484C29342948F363005A8044 /* GetLableSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484C29332948F363005A8044 /* GetLableSize.swift */; };
 		48504A7D294CE188001784D7 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48504A7C294CE188001784D7 /* SongDetailView.swift */; };
 		48504A7F294CE19C001784D7 /* SongDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48504A7E294CE19C001784D7 /* SongDetailViewController.swift */; };
+		48507D3A294F59A500E504BA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48507D39294F59A500E504BA /* CustomButton.swift */; };
+		48507D3C294F946300E504BA /* LinearGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48507D3B294F946300E504BA /* LinearGradientView.swift */; };
 		48619039294C5C7B00CF1C94 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48619038294C5C7B00CF1C94 /* SongCell.swift */; };
 		4861903C294C9A4300CF1C94 /* SongCellModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861903B294C9A4300CF1C94 /* SongCellModelFactory.swift */; };
 		4887AD9A2946530A00816246 /* AppDetailWhatsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887AD992946530A00816246 /* AppDetailWhatsNewViewController.swift */; };
@@ -48,6 +50,8 @@
 		484C29332948F363005A8044 /* GetLableSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLableSize.swift; sourceTree = "<group>"; };
 		48504A7C294CE188001784D7 /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
 		48504A7E294CE19C001784D7 /* SongDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewController.swift; sourceTree = "<group>"; };
+		48507D39294F59A500E504BA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		48507D3B294F946300E504BA /* LinearGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradientView.swift; sourceTree = "<group>"; };
 		48619038294C5C7B00CF1C94 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		4861903B294C9A4300CF1C94 /* SongCellModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCellModelFactory.swift; sourceTree = "<group>"; };
 		4887AD992946530A00816246 /* AppDetailWhatsNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailWhatsNewViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				48504A7C294CE188001784D7 /* SongDetailView.swift */,
+				48507D3B294F946300E504BA /* LinearGradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -138,6 +143,14 @@
 				48504A7E294CE19C001784D7 /* SongDetailViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		48507D38294F599300E504BA /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				48507D39294F59A500E504BA /* CustomButton.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		48619037294C5C6400CF1C94 /* Cell */ = {
@@ -327,6 +340,7 @@
 		F8A1E03D224850CA00FE6448 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				48507D38294F599300E504BA /* Custom */,
 				E0E1D2ED2035AA980011E01A /* AppDelegate */,
 				F8A1E03E224850E500FE6448 /* Monads */,
 				E0E1D359203ADCE10011E01A /* NetworkManager */,
@@ -515,7 +529,9 @@
 				E0E1D3D1203C48D70011E01A /* AppDetailViewController.swift in Sources */,
 				E0E1D358203ADC590011E01A /* NetworkManager.swift in Sources */,
 				484C292F2948CAF9005A8044 /* AppDetailScreenshotsViewController.swift in Sources */,
+				48507D3A294F59A500E504BA /* CustomButton.swift in Sources */,
 				483F15932949D2C000ABCF5E /* ScreenshotsCell.swift in Sources */,
+				48507D3C294F946300E504BA /* LinearGradientView.swift in Sources */,
 				4887AD9C2946535600816246 /* AppDetailWhatsNewView.swift in Sources */,
 				48619039294C5C7B00CF1C94 /* SongCell.swift in Sources */,
 				E0E1D39C203AE6420011E01A /* ITunesSong.swift in Sources */,
