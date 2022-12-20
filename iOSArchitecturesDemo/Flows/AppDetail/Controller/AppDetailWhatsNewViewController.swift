@@ -38,6 +38,5 @@ class AppDetailWhatsNewViewController: UIViewController {
     private func fillData() {
         appDetailWhatsNewView.versionLabel.text = "Версия \(app.version)"
         appDetailWhatsNewView.descriptionLabel.text = app.releaseNotes
-        appDetailWhatsNewView.dateLabel.text = app.currentVersionReleaseDate
     }
 }

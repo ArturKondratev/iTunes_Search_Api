@@ -42,6 +42,7 @@ class AppDetailHeaderView: UIView {
         button.setTitle("Открыть", for: .normal)
         button.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
         button.layer.cornerRadius = 16.0
+        button.addTarget(self, action: #selector(openButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -53,15 +54,18 @@ class AppDetailHeaderView: UIView {
         return label
     }()
     
+    private var app: ITunesApp
+    
     // MARK: - Init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    init(app: ITunesApp) {
+       self.app = app
+       super.init(frame: CGRect.zero)
         self.setupLayout()
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.setupLayout()
+     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - UI
@@ -95,5 +99,14 @@ class AppDetailHeaderView: UIView {
             self.ratingLabel.leftAnchor.constraint(equalTo: self.imageView.leftAnchor),
             self.ratingLabel.widthAnchor.constraint(equalToConstant: 100.0),
             self.ratingLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        ]) }
+        ])
+    }
+    
+    //MARK: - Actions
+    
+    @objc private func openButtonPressed() {
+    
+        guard let appUrl = self.app.appUrl, let url = URL(string: appUrl) else { return }
+    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
 }

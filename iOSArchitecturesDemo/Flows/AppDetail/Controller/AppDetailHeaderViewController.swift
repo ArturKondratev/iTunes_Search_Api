@@ -28,7 +28,7 @@ class AppDetailHeaderViewController: UIViewController {
     
     // MARK: - Lifecycle
     override func loadView() { super.loadView()
-        self.view = AppDetailHeaderView()
+        self.view = AppDetailHeaderView(app: app)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
