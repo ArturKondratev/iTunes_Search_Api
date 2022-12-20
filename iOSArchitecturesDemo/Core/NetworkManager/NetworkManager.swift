@@ -18,6 +18,7 @@ final class NetworkManager {
         Alamofire.request(request.url, method: request.method, parameters: request.parameters).validate().responseData { [weak self] response in
             response.result
                 .withValue { data in
+                    print(data)
                     completion?(.success(data))
                 }
                 .withError {

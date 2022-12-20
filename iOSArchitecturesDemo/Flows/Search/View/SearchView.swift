@@ -8,17 +8,27 @@
 
 import UIKit
 
+protocol SearchModeControlDelegate: AnyObject {
+    func didSelectSearchMode(with mode: SearchMode)
+}
+
+enum SearchMode: Int {
+    case apps = 0
+    case songs = 1
+}
+
 final class SearchView: UIView {
     
-    // MARK: - Subviews
+    weak var delegate: SearchModeControlDelegate?
     
+    // MARK: - Subviews
+    let segmentControl = UISegmentedControl(items: ["Apps", "Songs"])
     let searchBar = UISearchBar()
     let tableView = UITableView()
     let emptyResultView = UIView()
     let emptyResultLabel = UILabel()
     
     // MARK: - Init
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureUI()
@@ -29,14 +39,28 @@ final class SearchView: UIView {
         self.configureUI()
     }
     
-    // MARK: - UI
+    // MARK: - Methods
+    @objc private func didChangeMode() {
+        let searchMode = SearchMode(rawValue: segmentControl.selectedSegmentIndex) ?? .apps
+        delegate?.didSelectSearchMode(with: searchMode)
+    }
     
+    // MARK: - UI
     private func configureUI() {
         self.backgroundColor = .white
+        
+        self.addSegmentControl()
         self.addSearchBar()
         self.addTableView()
         self.addEmptyResultView()
         self.setupConstraints()
+    }
+    
+    private func addSegmentControl() {
+        self.segmentControl.translatesAutoresizingMaskIntoConstraints = false
+        self.segmentControl.selectedSegmentIndex = 0
+        self.segmentControl.addTarget(self, action: #selector(didChangeMode), for: .valueChanged)
+        self.addSubview(self.segmentControl)
     }
     
     private func addSearchBar() {
@@ -73,7 +97,12 @@ final class SearchView: UIView {
         let safeArea = self.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            self.searchBar.topAnchor.constraint(equalTo: self.topAnchor, constant: 8.0),
+            
+            self.segmentControl.topAnchor.constraint(equalTo: self.topAnchor, constant: 8.0),
+            self.segmentControl.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            self.segmentControl.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            
+            self.searchBar.topAnchor.constraint(equalTo: self.segmentControl.bottomAnchor, constant: 8.0),
             self.searchBar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             self.searchBar.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             
@@ -89,6 +118,6 @@ final class SearchView: UIView {
             self.emptyResultLabel.topAnchor.constraint(equalTo: self.emptyResultView.topAnchor, constant: 12.0),
             self.emptyResultLabel.leadingAnchor.constraint(equalTo: self.emptyResultView.leadingAnchor),
             self.emptyResultLabel.trailingAnchor.constraint(equalTo: self.emptyResultView.trailingAnchor)
-            ])
+        ])
     }
 }

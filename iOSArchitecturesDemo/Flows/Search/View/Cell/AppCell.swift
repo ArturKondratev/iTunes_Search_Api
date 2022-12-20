@@ -11,7 +11,6 @@ import UIKit
 final class AppCell: UITableViewCell {
     
     // MARK: - Subviews
-    
     private(set) lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +36,6 @@ final class AppCell: UITableViewCell {
     }()
     
     // MARK: - Init
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.configureUI()
@@ -49,7 +47,6 @@ final class AppCell: UITableViewCell {
     }
     
     // MARK: - Methods
-    
     func configure(with cellModel: AppCellModel) {
         self.titleLabel.text = cellModel.title
         self.subtitleLabel.text = cellModel.subtitle
@@ -57,7 +54,6 @@ final class AppCell: UITableViewCell {
     }
     
     // MARK: - UI
-    
     override func prepareForReuse() {
         [self.titleLabel, self.subtitleLabel, self.ratingLabel].forEach { $0.text = nil }
     }
@@ -74,7 +70,7 @@ final class AppCell: UITableViewCell {
             self.titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8.0),
             self.titleLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12.0),
             self.titleLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -40.0)
-            ])
+        ])
     }
     
     private func addSubtitleLabel() {
@@ -83,7 +79,7 @@ final class AppCell: UITableViewCell {
             self.subtitleLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 4.0),
             self.subtitleLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12.0),
             self.subtitleLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -40.0)
-            ])
+        ])
     }
     
     private func addRatingLabel() {
@@ -92,6 +88,6 @@ final class AppCell: UITableViewCell {
             self.ratingLabel.topAnchor.constraint(equalTo: self.subtitleLabel.bottomAnchor, constant: 4.0),
             self.ratingLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 12.0),
             self.ratingLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -40.0)
-            ])
+        ])
     }
 }
